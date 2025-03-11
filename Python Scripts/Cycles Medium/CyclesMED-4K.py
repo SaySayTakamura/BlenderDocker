@@ -1,0 +1,1 @@
+##Define what MEDIUM config are
