@@ -1,0 +1,1 @@
+echo "Pulling example .blend files from BLENDER.ORG"

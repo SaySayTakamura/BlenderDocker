@@ -1,0 +1,36 @@
+services:
+  blender:
+    <<: &image
+      image: blender
+      build:
+        context: .
+        args:
+          - blender_package_name=${blender_package_name}
+          - blender_package_url=${blender_package_url}
+          - blender_path=${blender_path}
+      volumes:
+        - ./input:${folder_input}
+        - ./output:${folder_output}
+      env_file:
+        - ./.env
+  
+  render:
+    container_name: blender-render
+    image: blender
+    command: [
+      "${blender_path}/blender",
+      "-noaudio",
+      "--background",
+      "${folder_input}/${render_input_file}",
+      "--engine",
+      "CYCLES",
+      "--render-output",
+      "${folder_output}/frame_#####",
+      "--render-format",
+      "PNG",
+      "--render-frame",
+      "1"
+    ]
+  volumes:
+      - ./input:${folder_input}
+      - ./output:${folder_output}
