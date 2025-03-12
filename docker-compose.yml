@@ -18,19 +18,20 @@ services:
     container_name: blender-render
     image: blender
     command: [
-      "${blender_path}/blender",
-      "-noaudio",
-      "--background",
-      "${folder_input}/${render_input_file}",
-      "--engine",
-      "CYCLES",
-      "--render-output",
-      "${folder_output}/frame_#####",
-      "--render-format",
-      "PNG",
-      "--render-frame",
-      "1"
+      "${blender_path}/blender",  #Blender Path
+      "-noaudio", #Specify No Audio
+      "--background", #Run without GUI
+      "${folder_input}/${render_input_file}", #File to be rendered needs to be placed after --background
+      "--render-output", #Output argument
+      "${folder_output}/frame_#####", #Output path and name
+      "--render-frame", #Frame argument, needs to be the last
+      "1", #Frame to render
+      "--python", #Python Option
+      "${folder_python_scripts}/${use_script}.py" #Script path and name to run
     ]
   volumes:
       - ./input:${folder_input}
       - ./output:${folder_output}
+      - ./Python Scripts:${folder_python_scripts}
+  env_file:
+        - ./.env
