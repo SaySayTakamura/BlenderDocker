@@ -1,6 +1,5 @@
 services:
-  blender:
-    <<: &image
+  blender-build:
       image: blender
       build:
         context: .
