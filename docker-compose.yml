@@ -11,6 +11,7 @@ services:
       volumes:
         - ./input:${folder_input}
         - ./output:${folder_output}
+        - ./scripts:${folder_python_scripts}
       env_file:
         - ./.env
   
@@ -29,9 +30,9 @@ services:
       "--render-frame", #Frame argument, needs to be the last
       "1", #Frame to render
     ]
-  volumes:
+    volumes:
       - ./input:${folder_input}
       - ./output:${folder_output}
-      - ./Python Scripts:${folder_python_scripts}
-  env_file:
-        - ./.env
+      - ./scripts:${folder_python_scripts}
+    env_file:
+      - ./.env

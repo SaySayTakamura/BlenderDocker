@@ -10,7 +10,7 @@
 FROM fedora:latest
 
 #Update the OS and install overall dependencies
-RUN dnf -y Update
+RUN dnf -y update
 RUN dnf -y install \
 curl \
 freetype \

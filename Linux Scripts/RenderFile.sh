@@ -23,4 +23,4 @@
 
 #Refactor needed, maybe a C# application is better than a shell sript
 
-docker compose run render "/usr/local/blender/blender "-noaudio" "--background" "${.}/${render_input_file}"
+#docker compose run render "/usr/local/blender/blender "-noaudio" "--background" "${.}/${render_input_file}"
