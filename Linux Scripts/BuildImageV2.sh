@@ -14,11 +14,16 @@ echo "- BUILDING IMAGE -"
 (cd ../. && exec docker compose run --detach --name=BUILDER blender-build)
 echo "- DONE -"
 
+#Stops container
 echo "- STOPPING BUILD CONTAINER -"
 docker stop BUILDER
 echo "- CONTAINER STOPPED -"
+
+#Deletes the container
 echo "- DELETING CONTAINER -"
 docker rm -f BUILDER
 echo "- CONTAINER DELETED -"
+
+#Announce the end of the process
 echo "- IMAGE BUILT -"
 echo "- DONE -"

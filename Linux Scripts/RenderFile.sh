@@ -1,26 +1,20 @@
-#This need to be reviewd
-#Find a good approach for this method
+# THIS SCRIPT CREATES A CONTAINER AND TELLS BLENDER
+# TO RENDER YOUR FILE
+#
+# STAY ADVISED, YOUR FILES NEED TO BE ON THE RESPECTIVE VOLUME FOLDERS
+# SUCH AS: INPUT, OUTPUT, SCRIPTS
+# THOSE FOLDERS ARE DIRECTLY CONNECTED TO THE CONTAINER
+# ANYTHING YOU DROP THERE WILL BE READABLE FOR BLENDER
+#
+# IF YOU NEED TO CHANGE THE FILE OR SCRIPT TO BE LOADED
+# UPDATE THE .ENV FILE
+#
+#
+#   MADE BY: ROXANNE 'EDGAR' TAKAMURA   
+#
+#
 
-#Here we move the INPUT file from wherever it is to the ./Input folder
-#Use this script in case you have your file stored somewhere else on your machine OUTSIDE the root folder (./path/to/BlenderDocker)
-#Hell even if you want to move from a folder inside it as well
-#read -p Is the File, ZIPPED'(.zip)'? result
-#if test "$result" = "Yes" || test "$result" = "Y"; then
-#    DECOMPRESS=true
-#fi
-#read -p "Enter the path to the blend file: " input
-#echo "Filepath - "$input
-
-#if [ $DECOMPRESS ]; then
-#    echo "Unzipping File"
-#    mkdir "../input/UnzippedFile"
-#else
-#    echo "Unzipping disabled"
-#fi
-
-#read -p "Enter the path to the blend file: " input
-#echo "Filepath - "$input
-
-#Refactor needed, maybe a C# application is better than a shell sript
-
-#docker compose run render "/usr/local/blender/blender "-noaudio" "--background" "${.}/${render_input_file}"
+source ../.env
+IF=$(echo $render_input_file|sed -r 's/[/]+/_/g')
+echo "Blender File being loaded - ${IF^^}"
+(cd ../. && exec docker compose run --detach --name="RENDER-${IF^^}" blender-render)

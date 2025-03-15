@@ -15,63 +15,64 @@ def main():
     print("Changing RENDER settings")
     
     #General Settings
-    bpy.data.scenes["Scene"].render.resolution_x = 1920
-    bpy.data.scenes["Scene"].render.resolution_y = 1080
-    bpy.data.scenes["Scene"].render.resolution_percentage = 100
-    bpy.data.scenes["Scene"].render.pixel_aspect_x = 1.0
-    bpy.data.scenes["Scene"].render.pixel_aspect_y = 1.0
-    bpy.data.scenes["Scene"].render.use_border = True
-    bpy.data.scenes["Scene"].render.use_crop_to_border = True
-    bpy.data.scenes["Scene"].render.use_file_extension = True
-    bpy.data.scenes["Scene"].render.image_settings.file_format = 'PNG'
-    bpy.data.scenes["Scene"].render.image_settings.color_depth = '16'
-    bpy.data.scenes["Scene"].render.image_settings.color_mode = 'RGBA'
-    bpy.data.scenes["Scene"].render.image_settings.compression = 0
-    bpy.data.scenes["Scene"].render.image_settings.color_management = 'FOLLOW_SCENE'
-    bpy.data.scenes["Scene"].render.use_overwrite = True
-    bpy.data.scenes["Scene"].render.use_sequencer = True    
+    bpy.context.scene.render.resolution_x = 1920
+    bpy.context.scene.render.resolution_y = 1080
+    bpy.context.scene.render.resolution_percentage = 100
+    bpy.context.scene.render.pixel_aspect_x = 1.0
+    bpy.context.scene.render.pixel_aspect_y = 1.0
+    bpy.context.scene.render.use_border = True
+    bpy.context.scene.render.use_crop_to_border = True
+    bpy.context.scene.render.use_file_extension = True
+    bpy.context.scene.render.image_settings.file_format = 'PNG'
+    bpy.context.scene.render.image_settings.color_depth = '16'
+    bpy.context.scene.render.image_settings.color_mode = 'RGBA'
+    bpy.context.scene.render.image_settings.compression = 0
+    bpy.context.scene.render.image_settings.color_management = 'FOLLOW_SCENE'
+    bpy.context.scene.render.use_overwrite = True
+    bpy.context.scene.render.use_sequencer = True    
    
-    bpy.data.scenes["Scene"].render.engine = 'CYCLES'
-    bpy.data.scenes["Scene"].cycles.device = 'CPU'
-    bpy.data.scenes["Scene"].cycles.feature_set = 'SUPPORTED'
-    bpy.data.scenes["Scene"].cycles.shading_system = True
-    bpy.data.scenes["Scene"].cycles.open_shading_language = True
+    bpy.context.scene.render.engine = 'CYCLES'
+    bpy.context.scene.cycles.device = 'CPU'
+    bpy.context.scene.cycles.feature_set = 'SUPPORTED'
+    bpy.context.scene.cycles.shading_system = True
+    bpy.context.scene.cycles.open_shading_language = True
     
     #Preview Render Settings
-    bpy.data.scenes["Scene"].cycles.use_preview_denoising = True
-    bpy.data.scenes["Scene"].cycles.use_preview_adaptive_sampling = True   
-    bpy.data.scenes["Scene"].cycles.preview_adaptive_threshold = 1.0
-    bpy.data.scenes["Scene"].cycles.preview_samples = 128
+    bpy.context.scene.cycles.use_preview_denoising = True
+    bpy.context.scene.cycles.use_preview_adaptive_sampling = True   
+    bpy.context.scene.cycles.preview_adaptive_threshold = 1.0
+    bpy.context.scene.cycles.preview_samples = 128
         
     #Final Render Settings
-    bpy.data.scenes["Scene"].cycles.use_denoising = True
-    bpy.data.scenes["Scene"].cycles.use_adaptive_sampling = True
-    bpy.data.scenes["Scene"].cycles.adaptive_threshold = 1.0
-    bpy.data.scenes["Scene"].cycles.samples = 256
+    bpy.context.scene.cycles.use_denoising = True
+    bpy.context.scene.cycles.use_adaptive_sampling = True
+    bpy.context.scene.cycles.adaptive_threshold = 1.0
+    bpy.context.scene.cycles.samples = 256
+    bpy.context.scene.cycles.use_guiding = True
     
     #General Render Settings
-    bpy.data.scenes["Scene"].cycles.max_bounces = 32
-    bpy.data.scenes["Scene"].cycles.diffuse_bounces = 32
-    bpy.data.scenes["Scene"].cycles.glossy_bounces = 32
-    bpy.data.scenes["Scene"].cycles.transmission_bounces = 32
-    bpy.data.scenes["Scene"].cycles.volume_bounces = 32
-    bpy.data.scenes["Scene"].cycles.transparent_bounces = 32
-    bpy.data.scenes["Scene"].cycles.sample_clamp_direct = 0.0
-    bpy.data.scenes["Scene"].cycles.sample_clamp_indirect = 10.0
-    bpy.data.scenes["Scene"].cycles.blur_glossy = 1.0
-    bpy.data.scenes["Scene"].cycles.caustics_refractive = True
+    bpy.context.scene.cycles.max_bounces = 32
+    bpy.context.scene.cycles.diffuse_bounces = 32
+    bpy.context.scene.cycles.glossy_bounces = 32
+    bpy.context.scene.cycles.transmission_bounces = 32
+    bpy.context.scene.cycles.volume_bounces = 32
+    bpy.context.scene.cycles.transparent_bounces = 32
+    bpy.context.scene.cycles.sample_clamp_direct = 0.0
+    bpy.context.scene.cycles.sample_clamp_indirect = 10.0
+    bpy.context.scene.cycles.blur_glossy = 1.0
+    bpy.context.scene.cycles.caustics_refractive = True
     
     #Performance Settings
-    bpy.data.scenes["Scene"].cycles.use_auto_tiling = True
-    bpy.data.scenes["Scene"].cycles.tile_size = 128
-    bpy.data.scenes["Scene"].cycles.debug_use_spatial_splits = True
-    bpy.data.scenes["Scene"].render.threads_mode = 'FIXED'
-    bpy.data.scenes["Scene"].render.threads = 2
-    bpy.data.scenes["Scene"].render.use_compositing = True
-    bpy.data.scenes["Scene"].render.compositor_device = 'CPU'
-    bpy.data.scenes["Scene"].render.compositor_precision = 'AUTO'
-    bpy.data.scenes["Scene"].render.use_persistent_data = False
-    bpy.data.scenes["Scene"].render.preview_pixel_size = 'AUTO'
+    bpy.context.scene.cycles.use_auto_tiling = True
+    bpy.context.scene.cycles.tile_size = 128
+    bpy.context.scene.cycles.debug_use_spatial_splits = True
+    bpy.context.scene.render.threads_mode = 'FIXED'
+    bpy.context.scene.render.threads = 2
+    bpy.context.scene.render.use_compositing = True
+    bpy.context.scene.render.compositor_device = 'CPU'
+    bpy.context.scene.render.compositor_precision = 'AUTO'
+    bpy.context.scene.render.use_persistent_data = False
+    bpy.context.scene.render.preview_pixel_size = 'AUTO'
     
     print("Done")  
     print("-SCRIPT END-")
