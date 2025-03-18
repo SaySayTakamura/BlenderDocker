@@ -33,35 +33,7 @@ alembic-devel \
 opensubdiv-devel \
 OpenColorIO-devel \
 minizip-ng-devel \
-llvm18 \
-intel-gmmlib \
-intel-ocloc \
-libaom \
-fribidi \
-harfbuzz \
-libshaderc \
-mesa-vulkan-drivers \
-intel-igc \
-intel-igc-devel \
-wayland-devel \
-egl-wayland \
-egl-wayland-devel \
-weston \
-libdecor \
-wayland-protocols-devel \
-mesa-libEGL \
-mesa-libEGL-devel \
-mesa-libGL \
-mesa-libGL-devel \
-oidn \
-usd \
-usd-devel \
-embree \
-openjpeg \
-openvdb \
-openshadinglanguage-common-headers \
-OpenImageIO \
-OpenImageIO-devel
+llvm18
 RUN dnf -y autoremove
 
 #Basic Arguments
