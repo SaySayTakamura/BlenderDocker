@@ -76,3 +76,6 @@ def main():
     
     print("Done")  
     print("-SCRIPT END-")
+
+if __name__ == "__main__":
+    main()

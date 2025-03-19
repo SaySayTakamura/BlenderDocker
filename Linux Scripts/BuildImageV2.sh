@@ -10,6 +10,7 @@
 # Note: this is merely a replacement for the 'docker build' command
 # As i gain experience i might switch from this docker compose to the docker build one
 
+#Builds the image and starts the dummy container
 echo "- BUILDING IMAGE -"
 (cd ../. && exec docker compose run --detach --name=BUILDER blender-build)
 echo "- DONE -"

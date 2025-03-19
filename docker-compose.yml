@@ -45,7 +45,7 @@ services:
       "--background", #Run without GUI
       "${folder_input}/${render_input_file}", #File to be rendered needs to be placed after --background
       "--render-output", #Output argument
-      "${folder_output}/frame_#####", #Output path and name
+      "${folder_output}/Animation/frame_#####", #Output path and name
       "--python", #Python Option
       "${folder_python_scripts}/${use_script}.py", #Script path and name to run
       "--render-anim" #Render animation instead of single frame
